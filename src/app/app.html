@@ -1,0 +1,21 @@
+<h1>My Angular Application</h1>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/user">User</a>
+</nav>
+<!-- provides Angular navigation without a full-page reload -->
+<nav>
+  <a routerLink="/">Home</a>
+  <a routerLink="/user">User</a>
+</nav>
+<!-- displays the component associated with the current route -->
+<router-outlet></router-outlet>
+<hr>
+<h1>Car List</h1>
+
+<p>{{ carService.getCars() }}</p>
+
+<hr>
+
+<form></form>

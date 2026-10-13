@@ -1,0 +1,16 @@
+.student-card {
+  background-color: lightblue;
+  padding: 20px;
+  border: 2px solid navy;
+  border-radius: 10px;
+  width: 250px;
+}
+
+h2 {
+  color: darkblue;
+}
+
+p {
+  font-size: 16px;
+  color: black;
+}

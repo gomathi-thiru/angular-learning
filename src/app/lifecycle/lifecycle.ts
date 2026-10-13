@@ -15,11 +15,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-lifecycle-demo',
+  selector: 'lifecycle-hook',
   standalone: true,
-  templateUrl: './lifecycle-demo.html'
+  templateUrl: './lifecycle.html'
 })
-export class LifecycleDemoComponent implements
+export class LifecycleComponent implements
   OnInit,
   OnChanges,
   DoCheck,

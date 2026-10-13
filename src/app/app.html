@@ -19,3 +19,45 @@
 <hr>
 
 <form></form>
+
+<hr>
+
+<h1>Angular Lifecycle Hooks Example</h1>
+
+<button (click)="changeInput()">
+  Change Input
+</button>
+
+<button (click)="toggleComponent()">
+  Show/Hide Component
+</button>
+
+<hr>
+
+@if (showDemo) {
+  <lifecycle-hook [dataInput]="inputValue">
+    <p>This is projected content from the parent component.</p>
+  </lifecycle-hook>
+}
+
+<hr>
+
+<h1>My Angular Application</h1>
+
+<app-student></app-student>
+<hr>
+
+<h2>Team Dashboard</h2>
+<app-user-card username="alice smith" role="Administrator" />
+<app-user-card [username]="currentEmployee" [role]="employeeRole" />
+<app-user-card username="bob jones" />
+
+<hr>
+<app-child (onDataSent)="handleChildData($event)"></app-child>
+<hr>
+<h1>Angular ng-content Example</h1>
+
+<app-card>
+  <p>Welcome to Angular!</p>
+  <p>This content comes from the parent component.</p>
+</app-card>

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  background-color: lightblue;
+  padding: 20px;
+  border: 2px solid blue;
+  border-radius: 8px;
+}
+
+h2 {
+  color: darkblue;
+}

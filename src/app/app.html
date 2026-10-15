@@ -57,7 +57,51 @@
 <hr>
 <h1>Angular ng-content Example</h1>
 
-<app-card>
+<!-- <app-card>
   <p>Welcome to Angular!</p>
   <p>This content comes from the parent component.</p>
-</app-card>
+</app-card> -->
+
+<hr>
+
+<h1>Angular Component Host Element Example</h1>
+
+<app-host></app-host>
+
+<hr>
+<h1>Angular Component Inheritance Example</h1>
+
+<app-custom-list [items]="['Angular', 'React', 'Vue']">
+</app-custom-list>
+<hr>
+
+<h1>Angular Dynamic Dashboard</h1>
+
+<button (click)="isAdmin = true">
+  Admin Dashboard
+</button>
+
+<button (click)="isAdmin = false">
+  User Dashboard
+</button>
+
+<hr>
+
+<ng-container *ngComponentOutlet="getDashboardComponent()">
+</ng-container>
+
+<hr>
+
+<h1>Angular Dynamic Component Example</h1>
+
+    <button (click)="showAlert()">
+      Trigger Alert
+    </button>
+
+<ng-container #modalContainer></ng-container>
+
+<hr>
+
+<h1>Angular Elements Example</h1>
+
+<my-custom-element user-title="Hello World"></my-custom-element>

@@ -14,27 +14,31 @@ import { UserDashboard } from './dynamic-comp-render/userdashboard';
 import { AlertModalComponent } from './dynamic-comp-render/alertmodel';
 import { MyComponent } from './custom_element/mycomponent';
 import { createCustomElement } from '@angular/elements';
+import { DashboardComponent } from '../templates/bindvalue';
+import { DatePipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
+import { ReversePipe } from './pipe/custom.pipe';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, User, LifecycleComponent, Student, UserCardComponent, 
-    ChildComponent, HostComponent, CustomListComponent, NgComponentOutlet, AdminDashboard, UserDashboard, AlertModalComponent],
+    ChildComponent, HostComponent, CustomListComponent, NgComponentOutlet, AdminDashboard, UserDashboard, AlertModalComponent, DashboardComponent,
+    UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  constructor(private injector: Injector) {
-    // Convert the Angular component into a custom element.
-    const MyCustomElement = createCustomElement(MyComponent, {
-      injector: this.injector
-    });
+  // constructor(private injector: Injector) {
+  //   // Convert the Angular component into a custom element.
+  //   const MyCustomElement = createCustomElement(MyComponent, {
+  //     injector: this.injector
+  //   });
 
-    // Register the custom element only once.
-    if (!customElements.get('my-custom-element')) {
-      customElements.define('my-custom-element', MyCustomElement);
-    }
-  }
+  //   // Register the custom element only once.
+  //   if (!customElements.get('my-custom-element')) {
+  //     customElements.define('my-custom-element', MyCustomElement);
+  //   }
+  // }
   carService = inject(CarService);
 
   inputValue = 'Hello Angular';
@@ -84,4 +88,52 @@ export class App {
       ]
     });
   }
+// pipe
+  name = 'angular framework';
+  message = 'HELLO WORLD';
+  today = new Date();
+  price = 1500;
+
+  msg = 'Angular';
+// event listner
+  msg1 = 'Welcome to Angular!';
+
+  showMessage() {
+    this.msg1 = 'Button clicked successfully!';
+  }
+// input event
+  username = '';
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.username = input.value;
+  }
+
+  // multiple event listner
+
+  a = 'Perform an action';
+
+  onClick(): void {
+    this.a = 'Button clicked!';
+    console.log(this.a);
+  }
+
+  onMouseOver(): void {
+    this.a = 'Mouse moved over the button!';
+    console.log(this.a);
+  }
+
+  onKeyUp(): void {
+    this.a = 'Keyboard key released!';
+    console.log(this.a);
+  }
+
+  // confrol flow (if)
+  isLoggedIn = true;
+
+  // for ex
+  fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+
+  // switch
+   role = 'admin';
 }

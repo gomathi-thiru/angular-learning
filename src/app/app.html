@@ -105,3 +105,96 @@
 <h1>Angular Elements Example</h1>
 
 <my-custom-element user-title="Hello World"></my-custom-element>
+
+<hr>
+<hr>
+<app-binding></app-binding>
+
+<hr>
+<!-- pipe example -->
+<h2>Angular Pipes Example</h2>
+
+<p>Original Name: {{ name }}</p>
+
+<p>Uppercase: {{ name | uppercase }}</p>
+
+<p>Lowercase: {{ message | lowercase }}</p>
+
+<p>Title Case: {{ name | titlecase }}</p>
+
+<p>Today's Date: {{ today | date:'dd-MM-yyyy' }}</p>
+
+<p>Price: {{ price | currency:'INR' }}</p>
+<hr>
+
+<h2>Custom Pipe Example</h2>
+
+<p>Original Text: {{ msg }}</p>
+
+<p>Reversed Text: {{ msg | reverse }}</p>
+
+<hr>
+
+<h2>Angular Event Listeners</h2>
+
+<p>{{ msg1 }}</p>
+
+<button (click)="showMessage()">Click Me</button>
+
+<hr>
+
+<h2>Input Event Example</h2>
+
+<label>Enter your name:</label>
+
+<input type="text" (input)="onInput($event)">
+
+<p>Your name: {{ username }}</p>
+
+<hr>
+
+<h2>Multiple Event Listeners</h2>
+
+<button
+  (click)="onClick()"
+  (mouseover)="onMouseOver()"
+  (keyup)="onKeyUp()">
+  Interact with Me
+</button>
+
+<p>{{ a }}</p>
+
+<hr>
+
+<h2>Angular @if Example</h2>
+
+@if (isLoggedIn) {
+  <p>Welcome! You are logged in.</p>
+} @else {
+  <p>Please log in.</p>
+}
+
+<h2>Angular @for Example</h2>
+
+<ul>
+  @for (fruit of fruits; track fruit) {
+    <li>{{ fruit }}</li>
+  }
+</ul>
+
+<h2>Angular @switch Example</h2>
+
+@switch (role) {
+  @case ('admin') {
+    <p>Welcome, Admin!</p>
+  }
+  @case ('user') {
+    <p>Welcome, User!</p>
+  }
+  @case ('guest') {
+    <p>Welcome, Guest!</p>
+  }
+  @default {
+    <p>Unknown role.</p>
+  }
+}

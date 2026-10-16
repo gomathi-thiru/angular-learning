@@ -1,0 +1,41 @@
+<div class="dashboard-container">
+  
+  <!-- 1. TEXT INTERPOLATION -->
+  <h2>Welcome back, {{ username() }}!</h2>
+
+  <hr>
+
+  <!-- 2. PROPERTY BINDING -->
+  <div class="profile-section">
+    <img [src]="imageUrl()" alt="User Profile Picture">
+
+    <!-- Dynamic boolean property (Disables the button when true) -->
+    <button [disabled]="isFormLocked()">
+      Edit Profile
+    </button>
+  </div>
+
+  <hr>
+
+  <!-- 3. ATTRIBUTE BINDING -->
+  <div class="accessibility-section">
+    <!-- ARIA attributes do not have direct DOM properties -->
+    <div role="alert" [attr.aria-label]="alertMessage()">
+    </div>
+
+    <!-- Table attributes like 'colspan' must use attribute binding -->
+    <table border="1">
+      <tr>
+        <td [attr.colspan]="tableSpan()">
+          This cell spans across {{ tableSpan() }} columns.
+        </td>
+      </tr>
+      <tr>
+        <td>Col 1</td>
+        <td>Col 2</td>
+        <td>Col 3</td>
+      </tr>
+    </table>
+  </div>
+
+</div>

@@ -8,7 +8,7 @@ import { UserCardComponent } from './input/input';
 import { ChildComponent } from './input/output/output';
 import { HostComponent } from './host_element/host';
 import { CustomListComponent } from './inherit/parent';
-import { NgComponentOutlet } from '@angular/common';
+import { NgClass, NgStyle, NgComponentOutlet } from '@angular/common';
 import { AdminDashboard } from './dynamic-comp-render/admindashboard';
 import { UserDashboard } from './dynamic-comp-render/userdashboard';
 import { AlertModalComponent } from './dynamic-comp-render/alertmodel';
@@ -17,12 +17,15 @@ import { createCustomElement } from '@angular/elements';
 import { DashboardComponent } from '../templates/bindvalue';
 import { DatePipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
 import { ReversePipe } from './pipe/custom.pipe';
+import { FormsModule } from '@angular/forms';
+import { NgTemplateOutlet } from '@angular/common';
+import { HighlightDirective } from './attr_directive/custom';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, User, LifecycleComponent, Student, UserCardComponent, 
     ChildComponent, HostComponent, CustomListComponent, NgComponentOutlet, AdminDashboard, UserDashboard, AlertModalComponent, DashboardComponent,
-    UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe],
+    UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe, FormsModule, NgTemplateOutlet, NgClass, NgStyle, HighlightDirective],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -136,4 +139,28 @@ export class App {
 
   // switch
    role = 'admin';
+
+  // two way binding(model to view)
+  uname: string = 'Gomathi';
+
+  updateName() {
+    this.uname = 'Angular';
+  }
+  // view to model
+  user_name: string = '';
+
+  // fragment & ng container
+  displayMessage = false;
+
+  u_name = 'Gomathi';
+  students = ['Gomathi', 'Priya'];
+
+  // variable in template
+
+  employee = 'gomathi';
+  empAge = 26;
+ // attribure directive
+  isActive = true;
+  textColor = 'blue';
+  fontSize = '20px';
 }

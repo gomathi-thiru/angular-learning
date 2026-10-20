@@ -166,7 +166,7 @@
 
 <hr>
 
-<h2>Angular @if Example</h2>
+<h2>Angular if Example</h2>
 
 @if (isLoggedIn) {
   <p>Welcome! You are logged in.</p>
@@ -174,7 +174,7 @@
   <p>Please log in.</p>
 }
 
-<h2>Angular @for Example</h2>
+<h2>Angular for Example</h2>
 
 <ul>
   @for (fruit of fruits; track fruit) {
@@ -182,7 +182,7 @@
   }
 </ul>
 
-<h2>Angular @switch Example</h2>
+<h2>Angular switch Example</h2>
 
 @switch (role) {
   @case ('admin') {
@@ -198,3 +198,210 @@
     <p>Unknown role.</p>
   }
 }
+<hr>
+<h2>Model to View</h2>
+
+<p>Username: {{ uname }}</p>
+
+<button (click)="updateName()">Update Name</button>
+
+<hr>
+<h2>View to Model</h2>
+
+<label>Enter your name:</label>
+
+<input type="text" [(ngModel)]="user_name">
+
+<p>Username: {{ user_name }}</p>
+
+<hr>
+<!-- fragment -->
+<h2>Angular Template Fragment Example</h2>
+
+<ng-template #myTemplate>
+  <p>Hello! This is a template fragment.</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="myTemplate"></ng-container>
+<hr>
+<h2>Display Template Fragment</h2>
+
+<button (click)="displayMessage = !displayMessage">
+  {{ displayMessage ? 'Hide Message' : 'Show Message' }}
+</button>
+
+<ng-template #messageTemplate>
+  <p>Welcome to Angular Template Fragments!</p>
+</ng-template>
+
+@if (displayMessage) {
+  <ng-container *ngTemplateOutlet="messageTemplate"></ng-container>
+}
+
+<h2>Template Fragment with Data</h2>
+
+<ng-template #userTemplate let-name="u_name">
+  <p>Welcome, {{ name }}!</p>
+</ng-template>
+
+<ng-container
+  *ngTemplateOutlet="userTemplate; context: { username: u_name }">
+</ng-container>
+
+<!-- ng container -->
+<hr>
+<h2>Grouping Elements with ng-container</h2>
+
+<ng-container>
+  <h3>Welcome!</h3>
+  <p>Hello, {{ u_name }}.</p>
+  <p>Welcome to Angular learning.</p>
+</ng-container>
+
+<h2>ng-container with if</h2>
+
+@if (isLoggedIn) {
+  <ng-container>
+    <h3>Welcome, User!</h3>
+    <p>You have successfully logged in.</p>
+    <button>Go to Dashboard</button>
+  </ng-container>
+} @else {
+  <p>Please log in to continue.</p>
+}
+
+<h2>*ngIf Example</h2>
+
+<p *ngIf="isLoggedIn">
+  Welcome! You are logged in.
+</p>
+
+<p *ngIf="!isLoggedIn">
+  Please log in.
+</p>
+
+<h2>Student List</h2>
+
+@for (student of students; track student) {
+  <ng-container>
+    <h3>Student Name: {{ student }}</h3>
+    <p>Welcome to the Angular class!</p>
+  </ng-container>
+  <hr>
+}
+
+<h2>*ngFor Example</h2>
+
+<ul>
+  <li *ngFor="let fruit of fruits">
+    {{ fruit }}
+  </li>
+</ul>
+
+<hr>
+
+<!-- <h2>Local Template Variables Example</h2>
+
+@let empName = employee;
+@let empAge = empAge;
+
+<p>Username: {{ empName }}</p>
+<p>Age: {{ empAge }}</p>
+
+<p>Welcome, {{ empName }}!</p> -->
+
+<h2>Template Reference Variables Example</h2>
+
+<label>Enter your name:</label>
+
+<input type="text" #nameInput placeholder="Enter your name">
+
+<button (click)="result.textContent = nameInput.value">
+  Submit
+</button>
+
+<p #result></p>
+
+<hr>
+
+<h2>ngClass Example</h2>
+
+<p [ngClass]="isActive ? 'active' : 'inactive'">
+  Welcome to Angular!
+</p>
+
+<button (click)="isActive = !isActive">
+  Toggle Class
+</button>
+
+<hr>
+<h2>ngStyle Example</h2>
+
+<p [ngStyle]="{
+  'color': textColor,
+  'font-size': fontSize
+}">
+  Angular Attribute Directives
+</p>
+
+<button (click)="textColor = 'red'">
+  Change Color
+</button>
+
+<button (click)="fontSize = '30px'">
+  Increase Font Size
+</button>
+
+<hr>
+<h2>Custom Attribute Directive</h2>
+
+<p appHighlight>
+  Move your mouse over this text!
+</p>
+<!-- structural directive -->
+<hr>
+<h2>ngIf Example</h2>
+
+<button (click)="isLoggedIn = !isLoggedIn">
+  Toggle Login
+</button>
+
+<p *ngIf="isLoggedIn">
+  Welcome! You are logged in.
+</p>
+
+<p *ngIf="!isLoggedIn">
+  Please log in.
+</p>
+
+
+<h2>ngFor Example</h2>
+
+<ul>
+  <li *ngFor="let fruit of fruits">
+    {{ fruit }}
+  </li>
+</ul>
+
+
+<h2>ngSwitch Example</h2>
+
+<div [ngSwitch]="role">
+
+  <p *ngSwitchCase="'admin'">
+    Welcome, Admin!
+  </p>
+
+  <p *ngSwitchCase="'user'">
+    Welcome, User!
+  </p>
+
+  <p *ngSwitchCase="'guest'">
+    Welcome, Guest!
+  </p>
+
+  <p *ngSwitchDefault>
+    Unknown role.
+  </p>
+
+</div>

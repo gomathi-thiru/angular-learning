@@ -1,4 +1,4 @@
-import { Component, inject, Injector, viewChild, ViewContainerRef, inputBinding, outputBinding, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, inject, Injector, viewChild, ViewContainerRef, inputBinding, outputBinding, CUSTOM_ELEMENTS_SCHEMA, InjectionToken } from '@angular/core';
 import { RouterOutlet, RouterLink} from '@angular/router';
 import { CarService } from './car.service';
 import { User } from './user/form';
@@ -20,13 +20,27 @@ import { ReversePipe } from './pipe/custom.pipe';
 import { FormsModule } from '@angular/forms';
 import { NgTemplateOutlet } from '@angular/common';
 import { HighlightDirective } from './attr_directive/custom';
+import { AdminService, UserService } from './dependency_injection/user.service';
+import { UserProfile } from './signal/user.profile';
+import { ProductDetails } from './signal/product.details';
+import { UserDetails } from './signal/user.details';
+import { Compute } from './signal/compute';
+
+export const APP_NAME =
+  new InjectionToken<string>('APP_NAME');
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, User, LifecycleComponent, Student, UserCardComponent, 
     ChildComponent, HostComponent, CustomListComponent, NgComponentOutlet, AdminDashboard, UserDashboard, AlertModalComponent, DashboardComponent,
-    UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe, FormsModule, NgTemplateOutlet, NgClass, NgStyle, HighlightDirective],
+    UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe, FormsModule, NgTemplateOutlet, NgClass, NgStyle, HighlightDirective,
+    UserProfile, ProductDetails, UserDetails, Compute],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [UserService, {
+      provide: UserService,
+      useClass: AdminService
+    },
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -163,4 +177,12 @@ export class App {
   isActive = true;
   textColor = 'blue';
   fontSize = '20px';
+
+  userService = inject(UserService);
+ // signal example
+  userName = 'Gomathi';
+  userAge = 25;
+  productName = 'Laptop';
+  productPrice = 55000;
+  productQuantity = 3;
 }

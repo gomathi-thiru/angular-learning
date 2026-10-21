@@ -386,7 +386,7 @@
 
 <h2>ngSwitch Example</h2>
 
-<div [ngSwitch]="role">
+<!-- <div [ngSwitch]="role">
 
   <p *ngSwitchCase="'admin'">
     Welcome, Admin!
@@ -402,6 +402,27 @@
 
   <p *ngSwitchDefault>
     Unknown role.
-  </p>
+  </p> -->
 
-</div>
+<!-- </div> -->
+
+<hr>
+<h2>Defining Dependency Providers</h2>
+
+<p>Username: {{ userService.getUsername() }}</p>
+
+<!-- signal input example -->
+
+<h2>Parent Component</h2>
+
+<app-user-profile [username]="userName"></app-user-profile>
+
+<h2>My Store</h2>
+
+<app-product-details [productName]="productName" [price]="productPrice"></app-product-details>
+
+<app-user-details [username]="userName" [age]="userAge"></app-user-details>
+
+<h2>Shopping Cart</h2>
+
+<app-compute [price]="productPrice" [quantity]="productQuantity"></app-compute>

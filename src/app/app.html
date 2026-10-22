@@ -426,3 +426,21 @@
 <h2>Shopping Cart</h2>
 
 <app-compute [price]="productPrice" [quantity]="productQuantity"></app-compute>
+
+<!-- router example -->
+
+<hr>
+<hr>
+
+<<h1>Angular Routing Demo</h1>
+
+<nav>
+  <a routerLink="/">Home</a> |
+  <a routerLink="/about">About</a> |
+  <a routerLink="/user/101">User 101</a> |
+  <a routerLink="/invalid">Not Found</a>
+</nav>
+
+<hr>
+
+<router-outlet></router-outlet>

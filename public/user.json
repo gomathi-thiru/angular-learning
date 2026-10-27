@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "username": "gomathi",
+    "password": "Gomathi@123",
+    "dob": "2000-09-23",
+    "gender": "Female"
+  },
+  {
+    "id": 2,
+    "username": "vinith",
+    "password": "Vinith@123",
+    "dob": "2000-08-23",
+    "gender": "Male"
+  },
+  {
+    "id": 3,
+    "username": "suhan",
+    "password": "Suhan@123",
+    "dob": "2026-02-18",
+    "gender": "Male"
+  }
+]

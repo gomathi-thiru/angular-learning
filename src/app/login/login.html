@@ -1,0 +1,100 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          placeholder="Enter username"
+          autocomplete="username"
+        />
+
+        @if (username.touched && username.hasError('required')) {
+          <small class="error">Username is required.</small>
+        }
+
+        @if (username.touched && username.hasError('minlength')) {
+          <small class="error">
+            Username must contain at least 3 characters.
+          </small>
+        }
+
+        @if (username.touched && username.hasError('pattern')) {
+          <small class="error">
+            Use only letters, numbers, and underscores.
+          </small>
+        }
+      </div>
+
+      <!-- password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+          autocomplete="current-password"
+        />
+
+        @if (password.touched && password.hasError('required')) {
+          <small class="error">Password is required.</small>
+        }
+
+        @if (password.touched && password.hasError('minlength')) {
+          <small class="error">
+            Password must contain at least 8 characters.
+          </small>
+        }
+      </div>
+
+      <!-- DOB -->
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+
+        <input
+          id="dob"
+          type="date"
+          formControlName="dob"
+        />
+
+        @if (dob.touched && dob.hasError('required')) {
+          <small class="error">Date of birth is required.</small>
+        }
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+
+        <select id="gender" formControlName="gender">
+          <option value="">Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        @if (gender.touched && gender.hasError('required')) {
+          <small class="error">Please select your gender.</small>
+        }
+      </div>
+
+      <!-- Login error -->
+      @if (errorMessage) {
+        <p class="error login-error" role="alert">
+          {{ errorMessage }}
+        </p>
+      }
+
+    </form>
+  </div>
+</div>

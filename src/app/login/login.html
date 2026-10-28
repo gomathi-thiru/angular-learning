@@ -3,7 +3,7 @@
 
     <h2>Login</h2>
 
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
       <!-- Username -->
       <div class="form-group">
@@ -70,6 +70,12 @@
         @if (dob.touched && dob.hasError('required')) {
           <small class="error">Date of birth is required.</small>
         }
+
+        @if (dob.touched && dob.hasError('invalidDob')) {
+          <small class="error">
+            Date of birth cannot be in the future.
+          </small>
+        }
       </div>
 
       <!-- Gender -->
@@ -94,6 +100,11 @@
           {{ errorMessage }}
         </p>
       }
+
+      <!-- Submit -->
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Logging in...' : 'Login' }}
+      </button>
 
     </form>
   </div>

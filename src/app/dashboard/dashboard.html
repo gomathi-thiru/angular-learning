@@ -1,0 +1,40 @@
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h2>Dashboard</h2>
+
+    <button type="button" (click)="logout()">
+      Logout
+    </button>
+  </header>
+
+  <main class="dashboard-content">
+
+    <h1>
+      Welcome, {{ user?.username }}!
+    </h1>
+
+    <p>You have successfully logged in.</p>
+
+    <div class="user-details">
+      <h3>User Details</h3>
+
+      <p>
+        <strong>Username:</strong>
+        {{ user?.username }}
+      </p>
+
+      <p>
+        <strong>Date of Birth:</strong>
+        {{ user?.dob }}
+      </p>
+
+      <p>
+        <strong>Gender:</strong>
+        {{ user?.gender }}
+      </p>
+    </div>
+
+  </main>
+
+</div>

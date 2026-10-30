@@ -25,6 +25,8 @@ import { UserProfile } from './signal/user.profile';
 import { ProductDetails } from './signal/product.details';
 import { UserDetails } from './signal/user.details';
 import { Compute } from './signal/compute';
+import { DynamicForm } from './form/formArray';
+import { TemplateDrivenForm } from './form/template-driven-form';
 
 export const APP_NAME =
   new InjectionToken<string>('APP_NAME');
@@ -34,7 +36,7 @@ export const APP_NAME =
   imports: [RouterOutlet, RouterLink, User, LifecycleComponent, Student, UserCardComponent, 
     ChildComponent, HostComponent, CustomListComponent, NgComponentOutlet, AdminDashboard, UserDashboard, AlertModalComponent, DashboardComponent,
     UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ReversePipe, FormsModule, NgTemplateOutlet, NgClass, NgStyle, HighlightDirective,
-    UserProfile, ProductDetails, UserDetails, Compute],
+    UserProfile, ProductDetails, UserDetails, Compute, DynamicForm, TemplateDrivenForm],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [UserService, {
       provide: UserService,

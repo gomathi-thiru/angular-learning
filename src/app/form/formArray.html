@@ -1,0 +1,24 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+
+  <h2>Registration Form</h2>
+  <label>Username</label>
+  <input type="text" formControlName="username">
+
+  <label>Email</label>
+  <input type="email" formControlName="email">
+
+  <h3>Phone Numbers</h3>
+  <div formArrayName="phoneNumbers">
+    @for (phone of phoneNumbers.controls; track $index) {
+      <div>
+        <input type="text" [formControlName]="$index" placeholder="Enter phone number">
+        <button type="button" (click)="removePhoneNumber($index)">Remove</button>
+      </div>
+    }
+  </div>
+
+  <!-- Add Phone Number -->
+  <button type="button" (click)="addPhoneNumber()">Add Phone Number</button>
+  <br><br>
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,18 @@
+<h2>Template-driven Form</h2>
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <label>Name:</label>
+  <input type="text" name="name" [(ngModel)]="name" required/>
+
+  <label>Email:</label>
+  <input type="email" name="email" [(ngModel)]="email" required/>
+
+  <button type="submit" [disabled]="!myForm.valid"> Submit </button>
+
+</form>
+
+<h3>Entered Details:</h3>
+
+<p>Name: {{ name }}</p>
+<p>Email: {{ email }}</p>
